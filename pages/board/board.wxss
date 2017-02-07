@@ -1,0 +1,15 @@
+.slide image{
+    width: 750rpx;
+    height: 400rpx;
+}
+.scroll-bar{
+}
+.scroll-bar .content{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+.scroll-bar .content image{
+    width: 200rpx;
+    height: 300rpx;
+}

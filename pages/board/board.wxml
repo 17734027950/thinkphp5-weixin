@@ -1,0 +1,17 @@
+<scroll-view class="container" scroll-y="true">
+    <view class="slide">
+        <swiper indicator-dots="true" autoplay="true" circular="true">
+            <block wx:for="{{boards[0].movies}}">
+                <swiper-item>
+                    <image mode="widthFix" src="{{item.images.large}}"></image>
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+    <view class="scroll-bar" wx:for="{{boards}}" wx:if="{{index!==0}}">
+        <text>{{item.title}}</text>
+        <scroll-view class="content" scroll-x="true">
+            <image wx:for="{{item.movies}}" src="{{item.images.large}}"></image>
+        </scroll-view>
+    </view>
+</scroll-view>    
