@@ -1,1 +1,11 @@
-<text>我的信息</text>
+<view class="container">
+    <view class="avatar">
+        <image src="{{img}}"></image>
+    </view>
+    <view class="name">
+        <text>{{name}}</text>
+    </view>
+    <view class="city">
+        <text>{{city}}</text>
+    </view>
+</view>

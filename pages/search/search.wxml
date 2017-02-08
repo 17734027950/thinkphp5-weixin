@@ -1,1 +1,17 @@
-<text>搜索页面</text>
+<view class="container">
+    <view class="search-box">
+        <input placeholder="请输入电影名称" value="{{keywords}}" bindconfirm="search"/>
+    </view>
+    <scroll-view>
+        <view class="list" wx:for="{{movies}}">
+            <view class="avatar">
+                <image src="{{item.images.large}}"></image>
+            </view>
+            <view class="intro">
+                <text class="name">{{item.title}}</text>
+                <text class="time">{{}}</text>
+                <text class="star">{{}}</text>
+            </view>
+        </view>
+    </scroll-view>
+</view>

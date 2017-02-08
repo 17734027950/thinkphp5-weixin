@@ -2,6 +2,7 @@ import Promise from './promise.js'
 const api = 'https://api.douban.com/v2/movie'
 
 export default function fetch (path, params){
+  path=='search'?params={q:params}:params;
   return new Promise((resolve, reject) => {
     wx.request({
       url: `${api}/${path}`,

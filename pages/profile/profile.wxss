@@ -1,0 +1,4 @@
+.container{
+    padding-top: 100rpx;
+    text-align: center;
+}

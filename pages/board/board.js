@@ -5,7 +5,8 @@ Page({
         boards: [
             {key: 'top250'},
             {key: 'in_theaters'},
-            {key: 'coming_soon'}
+            {key: 'coming_soon'},
+            {key: 'top250'}
         ]
     },
     onLoad () {
@@ -19,7 +20,6 @@ Page({
         });
         Promise.all(movies).then( movies => {
             this.setData({boards:movies})
-            console.log(this.data.boards)
         })
     }
 })

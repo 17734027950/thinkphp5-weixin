@@ -9,9 +9,16 @@
         </swiper>
     </view>
     <view class="scroll-bar" wx:for="{{boards}}" wx:if="{{index!==0}}">
-        <text>{{item.title}}</text>
-        <scroll-view class="content" scroll-x="true">
-            <image wx:for="{{item.movies}}" src="{{item.images.large}}"></image>
+        <text class="title">{{item.title}}</text>
+        <scroll-view class="content" scroll-x="true"> 
+            <view class="inner">
+                <navigator wx:for="{{item.movies}}" url="../item/item?id={{item.id}}">  
+                    <view class="movie-item">
+                        <image src="{{item.images.large}}"></image>
+                        <text>{{item.title}}</text>
+                    </view>
+                </navigator> 
+             </view>  
         </scroll-view>
     </view>
 </scroll-view>    

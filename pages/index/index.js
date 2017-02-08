@@ -6,10 +6,7 @@ Page({
     movie: []
   },
   onLoad () {
-    let params = {
-      count: 3
-    }
-    app.fetch('coming_soon', params)
+    app.fetch('coming_soon', {count:3})
       .then( d => {
         this.setData({movie: d.data.subjects})
       }

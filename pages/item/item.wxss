@@ -1,0 +1,17 @@
+.container{
+    padding-left: 50rpx;
+    padding-right: 50rpx;
+    color: #666;
+}
+.container .title{
+    color: #000;
+}
+.intro view{
+    margin-top: 10rpx;
+}
+.intro .title{
+    text-align: center;
+}
+.summary{
+    margin-top: 50rpx;
+}
