@@ -4,9 +4,15 @@ Page({
         movie: {}
     },
     onLoad (params) {
-        console.log(params.id)
+        app.fetch(`subject/${params.id}`)
+            .then( res => {
+                this.setData({movie:res.data});
+                wx.setNavigationBarTitle({
+                    title: `豆瓣 > 电影 > ${this.data.movie.title}`
+                })
+            })
     },
     onReady () {
-        wx.setNavigationBarTitle({title:'豆瓣 > 电影 > 速度与激情7'})
-      },
+        
+    },
 })

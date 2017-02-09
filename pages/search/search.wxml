@@ -1,17 +1,30 @@
 <view class="container">
-    <view class="search-box">
-        <input placeholder="请输入电影名称" value="{{keywords}}" bindconfirm="search"/>
-    </view>
-    <scroll-view>
-        <view class="list" wx:for="{{movies}}">
-            <view class="avatar">
-                <image src="{{item.images.large}}"></image>
-            </view>
-            <view class="intro">
-                <text class="name">{{item.title}}</text>
-                <text class="time">{{}}</text>
-                <text class="star">{{}}</text>
-            </view>
+  <view class="search-box">
+    <input placeholder="请输入电影名称" value="{{keywords}}" bindconfirm="search"/>
+  </view>
+  <view wx:if="{{loading}}" class="loading">
+    <image src="../../images/loading.gif"></image>
+    <view>
+      <text>正在加载...</text>
+    </view>  
+  </view>
+  <scroll-view scroll-y="true" bindscrolltolower="loadMore">
+    <view class="list">
+      <navigator wx:for="{{movies}}" url="../item/item?id={{item.id}}" class="list-item">
+        <image mode="aspectFit" src="{{item.images.small}}"></image>
+        <view class="intro">
+          <text class="name">{{item.title}}</text>
+          <text class="time">{{item.year}}</text>
+          <view class="star">
+            <text wx:for="{{item.directors}}">
+              {{item.name}}
+            </text>
+           </view> 
         </view>
-    </scroll-view>
+        <view  class="rating">
+          <text>{{item.rating.average}}</text>
+        </view>
+      </navigator>
+    </view>
+  </scroll-view>
 </view>

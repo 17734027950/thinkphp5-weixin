@@ -4,16 +4,18 @@
     </view>
     <view class="intro">
         <view class="title">
-            <text>速度与激情7</text>
+            <text>{{movie.title}}</text>
         </view>
         <view class="score">
-            <text>评分：{{}}</text>
+            <text>评分：{{movie.rating.average}}</text>
         </view>
-        <view class="director">
-            <text>导演： {{}}</text>
+        <view class="director">导演：
+            <text wx:for="{{movie.directors}}">{{item.name}}
+            </text>
         </view>
-        <view class="star">
-            <text>主演：{{}}</text>
+        <view class="star">主演：
+            <text wx:for="{{movie.casts}}">{{item.name}}
+            </text>
         </view>
     </view>
     <view class="summary">
@@ -21,7 +23,7 @@
             <text>摘要:</text>
         </view>
         <view class="detail">
-            <text>《速度与激情7》（Fast & Furious 7）是环球影业出品的一部赛车题材动作片，是《速度与激情》系列的第7部，由温子仁执导，范·迪塞尔、保罗·沃克、杰森·斯坦森、米歇尔·罗德里格兹、道恩·强森等主演，于2015年4月3日在美国上映。影片剧情将在多米尼克的团队和大反派德卡特·肖之间展开，讲述德卡特·肖为其弟报仇的故事</text>
+            <text>{{movie.summary}}</text>
         </view>
     </view>
 </view>

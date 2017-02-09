@@ -1,3 +1,6 @@
+text{
+    display: inline-block;
+}
 .container{
     padding-left: 50rpx;
     padding-right: 50rpx;
@@ -14,4 +17,7 @@
 }
 .summary{
     margin-top: 50rpx;
+}
+.director text, .star text{
+    margin-right: 20rpx;
 }

@@ -24,3 +24,8 @@
     width: 200rpx;
     height: 300rpx;
 }
+.movie-item text{
+    width: 200rpx;
+    height: 25px;
+    overflow: hidden;
+}
