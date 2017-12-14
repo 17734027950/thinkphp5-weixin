@@ -1,20 +1,29 @@
 <?php
 
-namespace app\index\controller\v1;
+namespace app\api\controller\v1;
 
 use think\Controller;
 use think\Request;
+use think\Exception;
+use app\api\validate\IDMustBePostiveInt;
+use app\api\model\Banner as BannerModel;
+use app\lib\exception\BannerMissException;
 
 class Banner extends Controller
 {
     /**
      * 显示资源列表
-     *
+     * @param  int  $id
      * @return \think\Response
      */
-    public function index()
+    public function getBanner($id)
     {
-        //
+        (new IDMustBePostiveInt())->goCheck();
+        $banner = BannerModel::getBanner($id);
+        if(!$banner){
+            throw new BannerMissException();
+        }
+        return $banner;
     }
 
     /**
