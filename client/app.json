@@ -1,0 +1,34 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/chat/chat",
+        "pages/cate/cate",
+        "pages/goods/goods",
+        "pages/user/user"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#333",
+        "navigationBarTitleText": "爱拉拉",
+        "navigationBarTextStyle": "white"
+    },
+    "tabBar": {
+        "color": "#fff",
+        "selectedColor": "orange",
+        "backgroundColor": "black",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "首页"
+            },
+            {
+                "pagePath": "pages/cate/cate",
+                "text": "分类"
+            },
+            {
+                "pagePath": "pages/user/user",
+                "text": "个人中心"
+            }
+        ]
+    }
+}
