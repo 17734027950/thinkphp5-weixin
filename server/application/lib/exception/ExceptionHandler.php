@@ -8,7 +8,7 @@ class ExceptionHandler extends Handle{
     private $code;
     private $msg;
     private $errorCode;
-    public function render(Exception $e){
+    public function render(\Exception $e){
         if($e instanceof BaseException){
             $this->code = $e->code;
             $this->msg = $e->msg;
@@ -26,11 +26,11 @@ class ExceptionHandler extends Handle{
         $result = [
             'msg'=>$this->msg,
             'errorCode'=>$this->errorCode,
-            'request_url'=>request()->url()
+            'url'=>request()->url(true)
         ];
         return json($result, $this->code);
     }
-    private function recordErrorLog(Exception $e){
+    private function recordErrorLog(\Exception $e){
         Log::init([
             'type'  =>  'File',
             'path'  =>  LOG_PATH,

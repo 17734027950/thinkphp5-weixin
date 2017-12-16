@@ -1,10 +1,14 @@
 <?php
 namespace app\api\validate;
 use think\Validate;
+use think\Loader;
 use think\Exception;
 use app\lib\exception\ParameterException;
 
 class BaseValidate extends Validate{
+    /**
+     * 验证器
+     */
     public function goCheck(){
         $data = input('');
         $re = $this->batch()->check($data);
@@ -15,6 +19,18 @@ class BaseValidate extends Validate{
             throw $e;
         }else{
             return true;
+        }
+    }
+    /**
+     * 验证参数是否为正整数
+     * @param int $value
+     * @return boolean
+     */
+    protected function isPositiveInt($value){
+        if (is_numeric($value) && is_int($value + 0) && ($value + 0) > 0) {
+            return true;
+        }else{
+            return false;
         }
     }
 }
