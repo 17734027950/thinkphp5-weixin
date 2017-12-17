@@ -1,0 +1,12 @@
+---------------------------------------------------------------
+[ 2017-12-15T19:44:13+08:00 ] 127.0.0.1 GET /banner/1
+[ info ] weixin.com/banner/1 [运行时间：0.335019s][吞吐率：2.98req/s] [内存消耗：2,940.75kb] [文件加载：44]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;dbname=weixin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `weixin_banner` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT * FROM `weixin_banner` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2017-12-15T19:44:23+08:00 ] 127.0.0.1 GET /banner/1
+[ info ] weixin.com/banner/1 [运行时间：0.309018s][吞吐率：3.24req/s] [内存消耗：2,941.29kb] [文件加载：44]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003000s ] mysql:host=127.0.0.1;dbname=weixin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `weixin_banner` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `weixin_banner` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.002001s ]

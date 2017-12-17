@@ -1,13 +1,13 @@
 <?php
-
 namespace app\api\controller\v1;
 
 use think\Controller;
 use app\api\validate\IDMustBePostiveInt;
 use app\api\model\Banner as BannerModel;
 use app\lib\exception\BannerMissException;
+use app\api\controller\v1\BaseController;
 
-class Banner extends Controller
+class Banner extends BaseController
 {
     /**
      * 获取banner轮播图
@@ -18,9 +18,9 @@ class Banner extends Controller
     {
         (new IDMustBePostiveInt())->goCheck();
         $banner = BannerModel::getBanner($id);
-        if(!$banner){
+        if($banner->isEmpty()){
             throw new BannerMissException();
         }
-        return json($banner);
+        return $banner;
     }
 }
