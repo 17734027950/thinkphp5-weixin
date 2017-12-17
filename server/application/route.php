@@ -11,12 +11,14 @@
 
 use think\Route;
 
-Route::get('/:version/banner/:id$', 'api/:version.Banner/getBanner');
+Route::get('api/:version/banner/:id$', 'api/:version.Banner/getBanner');
 
-Route::get('/:version/theme$', 'api/:version.Theme/getThemeList');
-Route::get('/:version/theme/:id$', 'api/:version.Theme/getThemeWithProducts');
+Route::get('api/:version/theme$', 'api/:version.Theme/getThemeList');
+Route::get('api/:version/theme/:id$', 'api/:version.Theme/getThemeWithProducts');
 
-Route::get('/:version/product/resent$', 'api/:version.Product/getResent');
-Route::get('/:version/product/by_category/:id$', 'api/:version.Product/getByCategory');
+Route::get('api/:version/product/resent$', 'api/:version.Product/getResent');
+Route::get('api/:version/product/by_category/:id$', 'api/:version.Product/getByCategory');
 
-Route::get('/:version/cate/all$', 'api/:version.Category/getAllCategory');
+Route::get('api/:version/cate/all$', 'api/:version.Category/getAllCategory');
+
+Route::post('api/:version/token/user/$', 'api/:version.User/getToken');

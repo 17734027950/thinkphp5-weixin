@@ -26,8 +26,20 @@ class BaseValidate extends Validate{
      * @param int $value
      * @return boolean
      */
-    protected function isPositiveInt($value){
+    protected function isPositiveInt($value, $rule = '', $data = '', $filed = ''){
         if (is_numeric($value) && is_int($value + 0) && ($value + 0) > 0) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+    /**
+     * 验证参数是否为空
+     * @param int $value
+     * @return boolean
+     */
+    protected function isNotEmpty($value, $rule = '', $data = '', $filed = ''){
+        if (!empty($value)) {
             return true;
         }else{
             return false;
