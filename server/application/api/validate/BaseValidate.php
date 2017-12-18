@@ -4,6 +4,7 @@ use think\Validate;
 use think\Loader;
 use think\Exception;
 use app\lib\exception\ParameterException;
+use app\lib\exception\AddressException;
 
 class BaseValidate extends Validate{
     /**
@@ -44,5 +45,33 @@ class BaseValidate extends Validate{
         }else{
             return false;
         }
+    }
+    /**
+     * 验证参数是否为手机号码
+     * @param int $value
+     * @return boolean
+     */
+    protected function isMobile($value, $rule = '', $data = '', $filed = ''){
+        $pattern = '/^1(3|4|5|6|7|8|9)\d{9}$/';
+        if (preg_match($pattern, $value)) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+    /**
+     * 验证参数是否包含非法键值
+     * @param int $value
+     * @return boolean
+     */
+    public function isParamLegal($value, $rule = '', $data = '', $filed = ''){
+        foreach($value as $k=>$v){
+            if(!array_key_exists($k, $this->rule)){
+                throw new ParameterException([
+                    'msg'=>'参数中包含非法键值对'
+                ]);
+            }
+        }
+        return true;
     }
 }

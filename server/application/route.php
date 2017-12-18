@@ -10,7 +10,7 @@
 // +----------------------------------------------------------------------
 
 use think\Route;
-
+//首页轮播图
 Route::get('api/:version/banner/:id', 'api/:version.Banner/getBanner');
 //主题分组
 Route::group('api/:version/theme', function(){
@@ -23,7 +23,9 @@ Route::group('api/:version/product', function(){
     Route::get('/by_category/:id', 'api/:version.Product/getByCategory', [], ['id'=>'\d+']);
     Route::get('/:id', 'api/:version.Product/getDetails', [], ['id'=>'\d+']);
 });
-
+//分类
 Route::get('api/:version/cate/all', 'api/:version.Category/getAllCategory');
-
+//token验证
 Route::post('api/:version/token/user', 'api/:version.User/getToken');
+//收货地址
+Route::post('api/:version/address', 'api/:version.Address/createOrUpdateAddress');
