@@ -24,4 +24,13 @@ class Address extends BaseController{
 
         return json(new SuccessMessage(), 201);
     }
+    /**
+     * 获取收货地址
+     */
+    public function getAddress(){
+        //获取用户uid
+        $uid = Token::getUid();
+        $address = UserAddressModel::get(['user_id'=>$uid]);
+        return $address;
+    }
 }

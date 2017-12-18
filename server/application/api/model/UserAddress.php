@@ -15,7 +15,15 @@ class UserAddress extends BaseModel{
             $address->save($data, ['user_id'=>$uid]);
         }else{
             //新建
-            $address = self::create($data);
+            $address = self::create([
+                'name'=>$data['name'],
+                'mobile'=>$data['mobile'],
+                'province'=>$data['province'],
+                'city'=>$data['city'],
+                'country'=>$data['country'],
+                'detail'=>$data['detail'],
+                'user_id'=>$uid
+            ]);
         }
     }
 }

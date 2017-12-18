@@ -28,4 +28,7 @@ Route::get('api/:version/cate/all', 'api/:version.Category/getAllCategory');
 //token验证
 Route::post('api/:version/token/user', 'api/:version.User/getToken');
 //收货地址
-Route::post('api/:version/address', 'api/:version.Address/createOrUpdateAddress');
+Route::group('api/:version/address', function(){
+    Route::get('/', 'api/:version.Address/getAddress');
+    Route::post('/', 'api/:version.Address/createOrUpdateAddress');
+});
