@@ -32,4 +32,12 @@ class Product extends BaseController{
         $products = $products->hidden(['summary']);
         return $products;
     }
+    /**
+     * 获取商品详情
+     * @param int $id
+     */
+    public function getDetails($id){
+        $product = ProductModel::getDetails($id);
+        return $product;
+    }
 }

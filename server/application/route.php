@@ -11,14 +11,19 @@
 
 use think\Route;
 
-Route::get('api/:version/banner/:id$', 'api/:version.Banner/getBanner');
+Route::get('api/:version/banner/:id', 'api/:version.Banner/getBanner');
+//主题分组
+Route::group('api/:version/theme', function(){
+    Route::get('/', 'api/:version.Theme/getThemeList');
+    Route::get('/:id', 'api/:version.Theme/getThemeWithProducts'); 
+});
+//产品分组
+Route::group('api/:version/product', function(){
+    Route::get('/resent', 'api/:version.Product/getResent');
+    Route::get('/by_category/:id', 'api/:version.Product/getByCategory', [], ['id'=>'\d+']);
+    Route::get('/:id', 'api/:version.Product/getDetails', [], ['id'=>'\d+']);
+});
 
-Route::get('api/:version/theme$', 'api/:version.Theme/getThemeList');
-Route::get('api/:version/theme/:id$', 'api/:version.Theme/getThemeWithProducts');
+Route::get('api/:version/cate/all', 'api/:version.Category/getAllCategory');
 
-Route::get('api/:version/product/resent$', 'api/:version.Product/getResent');
-Route::get('api/:version/product/by_category/:id$', 'api/:version.Product/getByCategory');
-
-Route::get('api/:version/cate/all$', 'api/:version.Category/getAllCategory');
-
-Route::post('api/:version/token/user/$', 'api/:version.User/getToken');
+Route::post('api/:version/token/user', 'api/:version.User/getToken');

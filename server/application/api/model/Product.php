@@ -13,7 +13,16 @@ class Product extends BaseModel{
     public function cate(){
         return $this->BelongsTo('Category', 'category_id', 'id');
     }
+    //关联图片表
+    public function imgs(){
+        return $this->hasMany('ProductImage', 'product_id', 'id');
+    }
+    //关联商品属性表
+    public function properties(){
+        return $this->hasMany('ProductProperty', 'product_id', 'id');
+    }
     /**
+     * 获取最近商品
      * @param int $count
      * @return array $products
      */
@@ -28,5 +37,17 @@ class Product extends BaseModel{
     public static function getByCategory($id){
         $products = self::all(['category_id'=>$id]);
         return $products;
+    }
+    /**
+     * 获取商品详情
+     * @param int $id
+     */
+    public static function getDetails($id){
+        $product = self::with([
+            'imgs'=>function($query) {
+                $query->with(['imgUrl'])->order('order','asc');
+            }
+        ])->with(['properties'])->find($id);;
+        return $product;
     }
 }
