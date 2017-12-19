@@ -3,6 +3,7 @@ namespace app\api\service;
 use app\lib\exception\WechatException;
 use app\api\model\User as UserModel;
 use app\api\service\Token;
+use app\lib\enum\ScopeEnum;
 
 class UserToken extends Token{
     protected $app_id;
@@ -88,7 +89,7 @@ class UserToken extends Token{
         $CacheValue = $wxresult;
         $CacheValue['uid'] = $uid;
         //16 普通用户 32 super用户 枚举类型
-        //$CacheValue['scope'] = ScopeEnum::user;
+        $CacheValue['scope'] = ScopeEnum::USER;
         return $CacheValue;
     }
     /**

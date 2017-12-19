@@ -12,12 +12,12 @@
 use think\Route;
 //首页轮播图
 Route::get('api/:version/banner/:id', 'api/:version.Banner/getBanner');
-//主题分组
+//主题
 Route::group('api/:version/theme', function(){
     Route::get('/', 'api/:version.Theme/getThemeList');
     Route::get('/:id', 'api/:version.Theme/getThemeWithProducts'); 
 });
-//产品分组
+//产品
 Route::group('api/:version/product', function(){
     Route::get('/resent', 'api/:version.Product/getResent');
     Route::get('/by_category/:id', 'api/:version.Product/getByCategory', [], ['id'=>'\d+']);
@@ -31,4 +31,11 @@ Route::post('api/:version/token/user', 'api/:version.User/getToken');
 Route::group('api/:version/address', function(){
     Route::get('/', 'api/:version.Address/getAddress');
     Route::post('/', 'api/:version.Address/createOrUpdateAddress');
+});
+//订单
+Route::group('api/:version/order', function(){
+    Route::post('/', 'api/:version.Order/placeOrder');
+    Route::post('/:id', 'api/:version.Order/getOrderDetailById', [], ['id'=>'\d+']);
+    Route::get('/by_user', 'api/:version.Order/getSummaryByUser');
+    Route::get('/paginate', 'api/:version.Order/getSummary');
 });
