@@ -35,7 +35,7 @@ Route::group('api/:version/address', function(){
 //订单
 Route::group('api/:version/order', function(){
     Route::post('/', 'api/:version.Order/placeOrder');
-    Route::post('/:id', 'api/:version.Order/getOrderDetailById', [], ['id'=>'\d+']);
+    Route::get('/:id', 'api/:version.Order/getDetailById', [], ['id'=>'\d+']);
     Route::get('/by_user', 'api/:version.Order/getSummaryByUser');
     Route::get('/paginate', 'api/:version.Order/getSummary');
 });

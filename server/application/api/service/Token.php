@@ -21,7 +21,7 @@ class Token
     }
     //获取uid
     public static function getUid(){
-        $cacheValue = $this->getCache();
+        $cacheValue = self::getCache();
         return $cacheValue['uid'];
     }
     //获取scope
@@ -57,7 +57,7 @@ class Token
     public static function needPrimaryScope() {
         $scope = self::getScope();
         if($scope){
-            if($scope > ScopeEnum::USER){
+            if($scope >= ScopeEnum::USER){
                 return true;
             }else{
                 throw new ForbidException();

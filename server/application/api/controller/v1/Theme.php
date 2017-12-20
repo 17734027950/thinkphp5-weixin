@@ -3,7 +3,7 @@ namespace app\api\controller\v1;
 
 use app\api\controller\v1\BaseController;
 use app\api\validate\IDMustBeArray;
-use app\api\validate\IDMustBePostiveInt;
+use app\api\validate\IDMustBePositiveInt;
 use app\api\model\Theme as ThemeModel;
 use app\lib\exception\ThemeMissException;
 use app\lib\exception\ProductMissException;
@@ -29,7 +29,7 @@ class Theme extends BaseController{
      * @return array $theme
      */
     public function getThemeWithProducts($id){
-        (new IDMustBePostiveInt())->goCheck($id);
+        (new IDMustBePositiveInt())->goCheck($id);
         $theme = ThemeModel::getThemeWithProducts($id);
         if($theme->isEmpty()){
             throw new ThemeException([

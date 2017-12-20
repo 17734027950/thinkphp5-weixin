@@ -2,7 +2,7 @@
 namespace app\api\controller\v1;
 
 use think\Controller;
-use app\api\validate\IDMustBePostiveInt;
+use app\api\validate\IDMustBePositiveInt;
 use app\api\model\Banner as BannerModel;
 use app\lib\exception\BannerMissException;
 use app\api\controller\v1\BaseController;
@@ -16,7 +16,7 @@ class Banner extends BaseController
      */
     public function getBanner($id)
     {
-        (new IDMustBePostiveInt())->goCheck();
+        (new IDMustBePositiveInt())->goCheck();
         $banner = BannerModel::getBanner($id);
         if(!$banner){
             throw new BannerMissException();
