@@ -31,6 +31,8 @@ Route::post('api/:version/token/user', 'api/:version.User/getToken');
 Route::group('api/:version/address', function(){
     Route::get('/', 'api/:version.Address/getAddress');
     Route::post('/', 'api/:version.Address/createOrUpdateAddress');
+    Route::get('/ems', 'api/:version.Address/getEmsData');
+    Route::get('/send_code', 'api/:version.Address/sendCode');
 });
 //订单
 Route::group('api/:version/order', function(){
