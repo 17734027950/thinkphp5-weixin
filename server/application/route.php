@@ -41,3 +41,8 @@ Route::group('api/:version/order', function(){
     Route::get('/by_user', 'api/:version.Order/getSummaryByUser');
     Route::get('/paginate', 'api/:version.Order/getSummary');
 });
+//支付
+Route::group('api/:version/pay', function(){
+    Route::post('/pre_order','api/:version.pay/getPreOrder');
+    Route::post('/notify','api/:version.pay/receiveNotify');
+});
