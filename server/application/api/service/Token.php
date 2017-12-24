@@ -30,7 +30,7 @@ class Token
         return $cacheValue['scope'];
     }
     //获取缓存
-    private static function getCache(){
+    public static function getCache(){
         $token = request()->header('token');
         if($token){
             $cacheValue = cache($token);
@@ -79,5 +79,23 @@ class Token
                 throw new ForbidException();
             }
         }
+    }
+    /**
+     * 检测当前用户是否为该订单的用户
+     * @param int $uid
+     * @return bool
+     */
+    public static function isValidOperate($uid){
+        if(!$uid){
+            throw new Exception('用户不存在');
+        }
+        $cacheValue = self::getCache();
+        $current_uid = $cacheValue['uid'];
+        if($uid != $current_uid){
+            throw new ParameterException([
+                'msg'=>'用户名和订单不匹配'
+            ]);
+        }
+        return true;
     }
 }

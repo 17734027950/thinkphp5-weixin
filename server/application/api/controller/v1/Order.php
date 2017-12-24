@@ -89,7 +89,7 @@ class Order extends BaseController{
                 'msg'=>'查询的订单不存在'
             ]);
         }
-        $result = $result->hidden(['snap_items','snap_address','prepay_id'])->toArray();
+        $result = $result->hidden(['prepay_id'])->toArray();
         return $result;
     }
 }

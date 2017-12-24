@@ -208,4 +208,17 @@ class Order {
         }
         return $address;
     }
+    /**
+     * 支付时的库存量检测
+     * @param int $order_id
+     * @return array $status
+     */
+    public function checkOrderStock($order_id){
+        //获取用户提交的商品数据
+        $this->oProducts = OrderProduct::all(['order_id'=>$order_id]);
+        //获取数据库真实商品数据
+        $this->Products = $this->getProductsByOrder($this->oProducts);
+        $status = $this->getOrderStatus();
+        return $status;
+    }
 }
